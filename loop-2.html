@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>If-Else Ladder</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="my-4 font-weight-bold text-primary">Grading System</h1>
+      <div id="result" class="alert" role="alert"></div>
+      <!-- Div to display results -->
+    </div>
+
+    <script>
+      var jsMarks = parseInt(prompt("Enter the JavaScript marks"));
+      var javaMarks = parseInt(prompt("Enter the Java marks"));
+      var dotnetMarks = parseInt(prompt("Enter the DotNet marks"));
+      var total = jsMarks + javaMarks + dotnetMarks;
+      var average = total / 3;
+
+      // Create a variable to hold the output message
+      var resultMessage = "Average: " + average.toFixed(2) + "<br>";
+
+      // Determine the result and grade
+      if (jsMarks >= 35 && javaMarks >= 35 && dotnetMarks >= 35) {
+        resultMessage += "Result: <span class='pass'>Pass</span><br>"; // Pass in green
+
+        if (average >= 35 && average < 60) {
+          resultMessage += "Grade: <span class='grade'>C</span>"; // Grade in black
+        } else if (average >= 60 && average < 70) {
+          resultMessage += "Grade: <span class='grade'>B</span>"; // Grade in black
+        } else {
+          resultMessage += "Grade: <span class='grade'>A</span>"; // Grade in black
+        }
+
+        // Add the success class if passed
+        document.getElementById("result").classList.add("alert-success");
+      } else {
+        resultMessage += "Result: <span class='fail'>Failed</span>"; // Fail in red
+
+        // Add the danger class if failed
+        document.getElementById("result").classList.add("alert-danger");
+      }
+
+      // Display the result message on the web page
+      document.getElementById("result").innerHTML = resultMessage;
+    </script>
+  </body>
+</html>
